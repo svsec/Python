@@ -100,3 +100,44 @@ with open("arquivo.txt", "r") as file:
     dados = file.readlines()
 print(dados)
 
+# Numpy biblioteca numerica, permite a resolução de problemas matématicos e cientificos
+
+import numpy as np
+
+vet = np.array([1, 2, 3, 4])
+print(vet)
+
+matriz = np.array([[1,2],[1,2]])
+print(matriz)
+
+#  funçoes auxiliares
+#  matriz.shape / matriz.size / matriz.ndim
+#  np.eye() cria matrizes identidades 
+#  np.zeros/ np.ones
+
+
+#função arange serve para criar vetores ordenados com certo padrão 
+
+oi = np.arange(100, dtype = int)
+oii = np.arange(0, 100, 2)
+oii = np.arange(50, 0, -1, dtype = float)
+
+# funão numpy.random.randint(inicio = 0, fim, tamanho)
+
+vetorale = np.random.randint(0, 50, 4)
+matrizale = np.random.randint(0, 100, (3, 3))
+
+
+# numpy mais rapido que listas
+
+# Plotagem a partir do matplolib
+
+import matplotlib.pyplot as plt
+
+x = np.array([1, 3, 3, 4])
+y = np.array([1, 3, 2, 6])
+
+# funcoes como .plot / .scatter / .bar para diferentes graficos
+
+plt.plot(x, y)
+pt.show()
