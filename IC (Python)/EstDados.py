@@ -100,6 +100,13 @@ with open("arquivo.txt", "r") as file:
     dados = file.readlines()
 print(dados)
 
+# função list comprehension
+# pode usar funçôes ou exercutar comandos em determinada lista
+
+# [função(i) for i in lista]
+
+
+
 # Numpy biblioteca numerica, permite a resolução de problemas matématicos e cientificos
 
 import numpy as np
@@ -140,4 +147,13 @@ y = np.array([1, 3, 2, 6])
 # funcoes como .plot / .scatter / .bar para diferentes graficos
 
 plt.plot(x, y)
-pt.show()
+#pt.show()
+
+z = np.array([1, 3, 3, 4])
+a = np.array([1, 1.5, 2.5, 5])
+a2 = np.array([2, 3, 5, 7])
+
+plt.plot(z, a)
+plt.plot(a, a2)
+
+plt.savefig('grafico.png')
