@@ -5,9 +5,14 @@ Created on Wed Sep  2 19:31:05 2020
 
 @author: adal
 """
+
+
 # Esse arquivo será destinado a tipos de estruturas de dados :)
+import numpy as np
+import matplotlib.pyplot as plt
 
 # tupla (imutavel de tamanho fixo), utiliza-se parenteses ()
+
 
 t = (1, 2, 3)
 type(t)
@@ -56,26 +61,31 @@ for key in curso:
     print('KEY:', key, "descrição:", curso[key])
 
 # Funções
-
 # Ex:
+
+
 def alterar(a, b):
     return a - b
 
-print(alterar(3,5))
 
-# Pode-se passar listas por parametro para a função 
+# após uma função deixar duas linhas em branco por favor
+print(alterar(3, 5))
 
+
+# Pode-se passar listas por parametro para a função
 def dobrar(list):
     for i in range(len(list)):
         list[i] = list[i] * 2
+
+
 lista = [1, 2, 3, 4]
 dobrar(lista)
 
-# usamos o len porquê não é passado a quantidade de elementos da lista
+# usamos o lenporquê não é passado a quantidade de elementos da lista
 
 # usamos ** para exponencial
 
-# uma funçao pode retornar mais de um valor 
+# uma funçao pode retornar mais de um valor
 
 # def baskara (a, b, c):
 #     return x1, x2
@@ -83,17 +93,17 @@ dobrar(lista)
 
 # tratamento de exceções
 # try:
-#    pass //comandos que possam ter problemas 
+#    pass //comandos que possam ter problemas
 # except:
 #   pass //comando que irão processar se houver algum erro
-# finally 
+# finally
 #  pass /// opcional. sempre executará
 
 # manipulação de arquivos
 
 with open("arquivo.txt", "w") as file:
     file.write("sei lá")
-    
+
 # w escrever /r ler /a anexar
 
 with open("arquivo.txt", "r") as file:
@@ -105,29 +115,26 @@ print(dados)
 
 # [função(i) for i in lista]
 
+# Numpy biblioteca numerica, permite a resolução de problemas matématicos e
+# cientificos
 
-
-# Numpy biblioteca numerica, permite a resolução de problemas matématicos e cientificos
-
-import numpy as np
 
 vet = np.array([1, 2, 3, 4])
 print(vet)
 
-matriz = np.array([[1,2],[1,2]])
+matriz = np.array([[1, 2], [1, 2]])
 print(matriz)
 
 #  funçoes auxiliares
 #  matriz.shape / matriz.size / matriz.ndim
-#  np.eye() cria matrizes identidades 
+#  np.eye() cria matrizes identidades
 #  np.zeros/ np.ones
 
+# função arange serve para criar vetores ordenados com certo padrão
 
-#função arange serve para criar vetores ordenados com certo padrão 
-
-oi = np.arange(100, dtype = int)
+oi = np.arange(100, dtype=int)
 oii = np.arange(0, 100, 2)
-oii = np.arange(50, 0, -1, dtype = float)
+oii = np.arange(50, 0, -1, dtype=float)
 
 # funão numpy.random.randint(inicio = 0, fim, tamanho)
 
@@ -139,15 +146,13 @@ matrizale = np.random.randint(0, 100, (3, 3))
 
 # Plotagem a partir do matplolib
 
-import matplotlib.pyplot as plt
-
 x = np.array([1, 3, 3, 4])
 y = np.array([1, 3, 2, 6])
 
 # funcoes como .plot / .scatter / .bar para diferentes graficos
 
 plt.plot(x, y)
-#pt.show()
+plt.show()
 
 z = np.array([1, 3, 3, 4])
 a = np.array([1, 1.5, 2.5, 5])
