@@ -22,8 +22,8 @@ from sklearn.model_selection import RepeatedKFold
 
 
 # Puxando as tabelas com informações a serem averiguadas
-treino = pandinha.read_csv("C:/Users/adalberto.teixeira/Desktop/IC/train.csv")
-teste = pandinha.read_csv("C:/Users/adalberto.teixeira/Desktop/IC/test.csv")
+treino = pandinha.read_csv("C:/Users/adalberto.teixeira/Desktop/ML/Titanic/train.csv")
+teste = pandinha.read_csv("C:/Users/adalberto.teixeira/Desktop/ML/Titanic/test.csv")
 
 # Partindo dos dados, ele diz que mulheres sempre sobrevivem, mas se fizermos
 # uma alusão historica ao filme "Titanic" os primeiros a serem salvos são
@@ -32,12 +32,13 @@ teste = pandinha.read_csv("C:/Users/adalberto.teixeira/Desktop/IC/test.csv")
 # passageiro se encontrava o tivesse ajudado a se regastado também
 
 
-# alo = treino.groupby("Sex")[["Survived"]].mean()
-# plt.plot(alo)
+alo = treino.groupby("Sex")[["Survived"]].mean()
+plt.plot(alo)
+plt.savefig("MxH.png")
 # alo2 = treino.groupby("Pclass")[["Survived"]].mean()
 # plt.scatter(alo2)
-treino.groupby("SibSp")[["Survived"]].mean()
-treino.groupby("Fare")[["Survived"]].mean()
+treino.groupby("Sex")[["Survived"]].mean()
+treino.groupby("Pclass")[["Survived"]].mean()
 treino.pivot_table("Survived", index="Sex", columns="Pclass")
 descricao = treino.describe()
 
@@ -108,18 +109,29 @@ KFold = RepeatedKFold(n_splits=2, n_repeats=10, random_state=10)
 # laço dedicado para nos dizer aleatoriamente quais linhas devemos usar do
 # treino e da validação
 for linhas_treino, linhas_val in KFold.split(X):
+    
+    print("Treino:", linhas_treino[0])
+    print("Valid:", linhas_val.shape[0])
+    print()
+    
     X_treino = X.iloc[linhas_treino]
     X_val = X.iloc[linhas_val]
     y_treino = y.iloc[linhas_treino]
     y_val = y.iloc[linhas_val]
+    
+    print(X_treino.head())
+    print()
+    
     Floresta.fit(X_treino, y_treino)
 # funçao.fit é a função usada para treinar o modelo para chegar em uma previsão
     valid = Floresta.predict(X_val)
 # função .predict() usada para fazer a previção em cima das variaveis passadas
     acuracia = np.mean(y_val == valid)
     resultados.append(acuracia)
+    print("Acuracia:", acuracia)
+    print()
 
-print("Acuracia: ", np.mean(resultados))
+print("Acuracia_Final: ", np.mean(resultados))
 
 # Teste
 
